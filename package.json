@@ -1,0 +1,24 @@
+{
+    "name": "angular_tutorials",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "tsc && node main.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vukhai98/Angular_Tutorials.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/vukhai98/Angular_Tutorials/issues"
+    },
+    "homepage": "https://github.com/vukhai98/Angular_Tutorials#readme",
+    "devDependencies": {
+        "typescript": "^4.6.3"
+    }
+}
