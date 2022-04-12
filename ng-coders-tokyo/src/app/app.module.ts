@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './components/hello/hello.component';
 import { HiComponent } from './components/hi/hi.component';
+import { DataService } from './services/data.service';
 
 @NgModule({// @Decorator //metadata
   declarations: [
@@ -14,7 +15,7 @@ import { HiComponent } from './components/hi/hi.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

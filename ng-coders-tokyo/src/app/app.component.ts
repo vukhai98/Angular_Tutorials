@@ -1,4 +1,13 @@
-import { Component } from '@angular/core';
+import { Component,
+  OnInit,
+  OnChanges,
+  OnDestroy,
+  AfterViewInit,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterContentChecked,
+  SimpleChanges
+} from '@angular/core';
 
 @Component({
   selector: 'app-root', //document.querySelector('app-root'); <app-root></app-root>
@@ -7,16 +16,17 @@ import { Component } from '@angular/core';
       [ngClass]="{'with-border': withBorder,
       'other-class':true}"
       [style.color]="textColor"
-      (mouseover)="onTextMouseOver()"
-      (mouseout)="onTextMouseOut()"
      >
     Welcome to {{title}}!
   </h1> <!--StringInterpolation-->
     <button (click)="onButtonClick()" >{{ withBorder ? 'Hide': 'Show'}} Border</button>
+    <app-hello [text]="title" (buttonClicked)="onButtonClickedFromHello($event)" ></app-hello>
+    <app-hi></app-hi>
   `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent
+implements OnInit,OnChanges,OnDestroy, AfterViewInit,AfterContentInit,AfterViewChecked,AfterContentChecked {
   title = 'Coders.Tokyo Update';
   imageSrc = 'https://image.vtc.vn/resize/Da9xKKWytSoiFZCjo1quiyS4lN8sApMm0/upload/2021/05/30/chelsea-4-06095690.jpg';
   textColor  = 'tomato';
@@ -26,21 +36,38 @@ export class AppComponent {
 
   withBorder = true;
 
+  ngOnInit(): void {
+    console.log('Parent OnInit ran');
+
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    //console.log('Parent OnChanges ran',{changes});
+  }
+  ngOnDestroy(): void {
+    //console.log('Parent OnDestroy ran');
+  }
+  ngAfterViewInit(): void {
+    //console.log('Parent AfterViewInit ran');
+  }
+  ngAfterContentInit(): void {
+    //console.log('Parent AfterContentInit ran');
+  }
+  ngAfterViewChecked(): void {
+    //console.log('Parent AfterViewChecked ran');
+  }
+  ngAfterContentChecked(): void {
+    //console.log('Parent AfterContentChecked ran');
+  }
+
   onButtonClick(){
    this.withBorder = !this.withBorder; //toggle trong javascript
+   this.title = 'Hello world I am ChickenCode';
   }
 
-  onTextMouseOver(){
-
-    this.textColor = 'dodgerblue';
-
+  onButtonClickedFromHello(event:any){
+      this.title = event;
   }
-  onTextMouseOut(){
-
-    this.textColor = 'tomato';
-
-  }
-
 }
 // DataBinding
 // 1. PropertyBinding

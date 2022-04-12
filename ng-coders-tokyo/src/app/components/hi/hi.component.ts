@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-hi',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HiComponent implements OnInit {
 
-  constructor() { }
+  textFromHello : any;
+  constructor(private _dataService:DataService) { }
 
   ngOnInit(): void {
+    this.textFromHello = this._dataService.textFromHello;
   }
 
 }
