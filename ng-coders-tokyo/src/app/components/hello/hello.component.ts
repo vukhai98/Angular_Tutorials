@@ -58,6 +58,7 @@ implements OnInit,OnChanges,OnDestroy, AfterViewInit,AfterContentInit,AfterViewC
   onButtonClicked(){
     this.text = 'Changed from Hello Component';
     this.buttonClicked.emit(this.text);
+    this._dataService.setTextFromHello(this.text);
   }
 
 

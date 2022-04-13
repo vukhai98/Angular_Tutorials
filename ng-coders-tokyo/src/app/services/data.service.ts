@@ -1,16 +1,14 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root' // global service dung chung cho ca Project
 }) //Dependency Injection //Design patten
 export class DataService{
-  private _textFromHello : any;
+  private _textFromHelloSubject : BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  get textFromHello() : string{
-    return this._textFromHello;
-  }
-
+  textFromHello$ : Observable<string> = this._textFromHelloSubject.asObservable();
   setTextFromHello(text: string){
-    this._textFromHello = text;
+    this._textFromHelloSubject.next(text);
   }
 }
